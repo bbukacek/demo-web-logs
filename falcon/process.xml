@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<process name="log-load" xmlns="uri:falcon:process:0.1">
+	<clusters>
+		<cluster>
+			<validity start="2014-06-27T00:00Z" end="2016-04-30T00:00Z"/>
+		</cluster>
+	</clusters>
+	<parallel>1</parallel>
+	<order>FIFO</order>
+	<frequency>minutes(3)</frequency>
+	<inputs>
+		<input name="onoaam-input" feed="logDataIn" start="now(0,0) end=now(0,0)" />
+	</inputs>
+	<outputs>
+		<output name="onoaam-output" feed="logDataOut" instance="today(0,0)" />
+	</outputs>
+	<workflow engine="pig" path="/user/hdp/log_process.pig" />
+	<retry policy="periodic" delay="minutes(1)" attempts="3" />
+</process>
