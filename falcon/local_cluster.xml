@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<cluster colo="local_cluster" description="local cluster"
+                 name="local-cluster"
+                 xmlns="uri:falcon:cluster:0.1">
+        <tags>class=demo,site=local</tags>
+        <interfaces>
+                <interface type="readonly" endpoint="hdfs://current.hortonworks.local:8020" version="2.4.0"/>
+        <interface type="write" endpoint="hdfs://current.hortonworks.local:8020" version="2.4.0"/>
+        <interface type="execute" endpoint="current.hortonworks.local:8050" version="2.4.0"/>
+        <interface type="workflow" endpoint="http://current.hortonworks.local:11000/oozie/" version="4.1.0"/>
+        <interface type="registry" endpoint="thrift://current.hortonworks.local:9083" version="0.13.0"/>
+        <interface type="messaging" endpoint="tcp://current.hortonworks.local:61616?daemon=true" version="5.4.3"/>
+        </interfaces>
+        <locations>
+                <location name="staging" path="/tmp"/>
+        <location name="working" path="/tmp"/>
+        <location name="temp" path="/tmp"/>
+        </locations>
+
+</cluster>

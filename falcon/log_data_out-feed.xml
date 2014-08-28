@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<feed description="log data feed" name="logDataOut" xmlns="uri:falcon:feed:0.1">
+        <frequency>minutes(3)</frequency>
+        <clusters>
+                <cluster name="local-cluster" type="source">
+                        <validity start="2014-03-01T00:00Z" end="2016-01-01T00:00Z"/>
+            <retention limit="days(90)" action="delete"/>
+                </cluster>
+        </clusters>
+        <table uri="catalog:demo:apache_logs#date=${YEAR}-${MONTH}-${DAY}-${HOUR}-${MINUTE}" />
+    <ACL owner="hdp" group="hdp" permission="0755" />
+    <schema location="" provider="hcatalog" />
+</feed>
