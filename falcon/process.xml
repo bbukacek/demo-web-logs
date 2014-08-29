@@ -3,7 +3,7 @@
 <process name="log-load" 
 		 xmlns="uri:falcon:process:0.1">
 	<clusters>
-		<cluster name="local-cluster">
+		<cluster name="demo-cluster">
 			<validity start="2014-08-24T10:00Z" end="2014-08-29T00:00Z" />
 		</cluster>
 	</clusters>
