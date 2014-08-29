@@ -24,4 +24,4 @@ mkdir -p ~/demo-output/flume
 #Compile and Run Application
 mvn compile
 cp src/main/resources/*.properties target/classes
-mvn compile exec:java -exec.classpathScope=compile -Dexec.mainClass=com.hortonworks.demo.dataloader.DataLoader
+mvn compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=com.hortonworks.demo.dataloader.DataLoader
