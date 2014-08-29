@@ -22,6 +22,7 @@ mkdir -p ~/demo-output/flume
 #/usr/lib/flume/bin/flume-ng agent -n agent -c conf -f flume/flume-onaam.conf
 
 #Compile and Run Application
+mvn clean
 mvn compile
 cp src/main/resources/*.properties target/classes
 mvn compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=com.hortonworks.demo.dataloader.DataLoader
