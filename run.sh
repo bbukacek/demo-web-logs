@@ -14,7 +14,7 @@ falcon entity -type cluster -submit -name demo-cluster -file falcon/cluster.xml
 falcon entity -type feed -submit -name logDataIn -file falcon/log_data_in-feed.xml
 falcon entity -type feed -submit -name logDataOut -file falcon/log_data_out-feed.xml
 falcon entity -type process -submit -name log-load -file falcon/process.xml
-faclon entity -type process -name log-load -schedule
+falcon entity -type process -name log-load -schedule
 
 mkdir -p ~/demo-output/flume
 
@@ -24,4 +24,4 @@ mkdir -p ~/demo-output/flume
 #Compile and Run Application
 mvn compile
 cp src/main/resources/*.properties target/classes
-mvn compile exect:java -exec.classpathScope=compile -Dexec.mainClass=com.hortonworks.demo.dataloader.DataLoader
+mvn compile exec:java -exec.classpathScope=compile -Dexec.mainClass=com.hortonworks.demo.dataloader.DataLoader
