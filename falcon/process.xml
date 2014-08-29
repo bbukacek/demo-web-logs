@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
 
-<process name="log-load" xmlns="uri:falcon:process:0.1">
-        <clusters>
-                <cluster name="local-cluster">
-                        <validity start="2014-08-24T10:00Z" end="2014-08-29T00:00Z" />
-                </cluster>
-        </clusters>
-        <parallel>1</parallel>
-        <order>FIFO</order>
-        <frequency>minutes(10)</frequency>
-        <inputs>
-                <input name="onoaamInput" feed="logDataIn" start="now(0,-10)" end="now(0,-1)" />
-        </inputs>
-        <outputs>
-                <output name="onoaamOutput" feed="logDataOut" instance="now(0,0)" />
-        </outputs>
-        <workflow engine="pig" path="/apps/falcon/pig/log_process.pig" lib="/apps/falcon/lib" />
-        <retry policy="periodic" delay="minutes(1)" attempts="3" />
+<process name="log-load" 
+		 xmlns="uri:falcon:process:0.1">
+	<clusters>
+		<cluster name="local-cluster">
+			<validity start="2014-08-24T10:00Z" end="2014-08-29T00:00Z" />
+		</cluster>
+	</clusters>
+	<parallel>1</parallel>
+	<order>FIFO</order>
+	<frequency>minutes(10)</frequency>
+	<inputs>
+	        <input name="onoaamInput" feed="logDataIn" start="now(0,-10)" end="now(0,-1)" />
+	</inputs>
+	<outputs>
+	        <output name="onoaamOutput" feed="logDataOut" instance="now(0,0)" />
+	</outputs>
+	<workflow engine="pig" path="/apps/apache_logs/pig/apache_logs.pig" lib="/apps/apache_logs/lib" />
+	<retry policy="periodic" delay="minutes(1)" attempts="3" />
 </process>
